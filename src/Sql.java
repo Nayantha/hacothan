@@ -4,7 +4,7 @@ public class Sql {
 
     static String url = "jdbc:mysql://localhost:3306/student?createDatabaseIfNotExist=true"; // create schema if it does not exist
     static String userName = "root";
-    static String password = "";
+    static String password = "060090N@a0";
 
     private static void createTable(Connection connection) throws SQLException {
 //        String sql = "DROP TABLE IF EXISTS courseDetails";
@@ -20,46 +20,19 @@ public class Sql {
     }
 
     public static double getGPV(String grade) {
-        double gpv = 0;
-        switch (grade) {
-            case "A+":
-                gpv = 4.0;
-            case "A":
-                gpv = 4.0;
-                break;
-            case "A-":
-                gpv = 3.7;
-                break;
-            case "B+":
-                gpv = 3.3;
-                break;
-            case "B":
-                gpv = 3.0;
-                break;
-            case "B-":
-                gpv = 2.7;
-                break;
-            case "C+":
-                gpv = 2.3;
-                break;
-            case "C":
-                gpv = 2.0;
-                break;
-            case "C-":
-                gpv = 1.7;
-                break;
-            case "D+":
-                gpv = 1.3;
-                break;
-            case "D":
-                gpv = 1.0;
-                break;
-            case "E":
-                gpv = 0;
-                break;
-            default:
-                gpv = 0;
-        }
+        double gpv = switch (grade) {
+            case "A+", "A" -> 4.0;
+            case "A-" -> 3.7;
+            case "B+" -> 3.3;
+            case "B" -> 3.0;
+            case "B-" -> 2.7;
+            case "C+" -> 2.3;
+            case "C" -> 2.0;
+            case "C-" -> 1.7;
+            case "D+" -> 1.3;
+            case "D" -> 1.0;
+            default -> 0.0;
+        };
         return gpv;
     }
 
@@ -134,7 +107,7 @@ public class Sql {
 
             String grade = result.getString("results");
             String courseCode = result.getString("courseCode");
-            int credit = result.getInt("courseCode");
+            int credit = result.getInt("credit");
             System.out.println("Course code : " + courseCode + " result-" + grade);
 
             totalCredits += credit;

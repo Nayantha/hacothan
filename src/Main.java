@@ -6,22 +6,20 @@ public class Main {
 
     public static void main(String[] args) {
 
-        String userWindows = System.getenv("USERNAME");
-        System.out.println("Username using environment variable in windows : " + userWindows);
-
-
         File file = new File("registration.txt");
         if (!file.exists()) {
             Registration.getRegistration();
         } else {
             try {
                 Scanner myReader = new Scanner(file);
-                String data = "";
-                while (myReader.hasNextLine()) {
-                    data = myReader.nextLine();
-                }
+                String name = "";
+                int duration = 0;
+
+                Registration.name = myReader.nextLine();
+                Registration.courseDuration = myReader.nextInt();
+
                 myReader.close();
-                MainMenu.UI(data);
+                MainMenu.UI(name);
             } catch (FileNotFoundException e) {
                 e.printStackTrace();
             }

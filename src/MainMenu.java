@@ -22,6 +22,11 @@ public class MainMenu extends Code {
             case (2):
                 Add.add(name);
                 break;
+            case (1):
+                ViewData.viewData();
+                break;
+            case (5):
+                break;
             default:
                 System.out.println("Wrong Choice");
                 MainMenu.UI(name);

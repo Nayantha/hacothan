@@ -4,6 +4,8 @@ import java.io.IOException;
 import java.util.Scanner;
 
 public class Registration {
+    public static String name = "";
+    public static int courseDuration = 0;
 
     public static void getRegistration() {
         System.out.println("----GPA Calculator----");
@@ -11,10 +13,11 @@ public class Registration {
         Scanner scanner = new Scanner(System.in);
 
         System.out.print("Enter Yor Name: ");
-        String name = scanner.nextLine();
+        name = scanner.nextLine();
 
         System.out.print("Course duration (in years): ");
-        int courseDuration = scanner.nextInt();
+
+        courseDuration = scanner.nextInt();
 
         File file = new File("registration.txt");
         try {
@@ -30,6 +33,10 @@ public class Registration {
 
         System.out.println("Congratulations! registration was complete.");
         MainMenu.UI(name);
+    }
+
+    public static void main(String[] args) {
+        System.out.println(courseDuration);
     }
 }
 
