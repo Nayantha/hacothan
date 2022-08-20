@@ -4,7 +4,7 @@ public class Sql {
 
     static String url = "jdbc:mysql://localhost:3306/student?createDatabaseIfNotExist=true"; // create schema if it does not exist
     static String userName = "root";
-    static String password = "060090N@a0";
+    static String password = "password";
 
     private static void createTable(Connection connection) throws SQLException {
 //        String sql = "DROP TABLE IF EXISTS courseDetails";
